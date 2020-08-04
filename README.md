@@ -20,11 +20,11 @@ Prerequisites : Visual Studio 2019
  git clone https://github.com/MathildeVenault/SysMainView.git
 ``` 
 - Open  ``SysMainView.sln`` with Visual Sutdio 2019
-- Build the project with ``x64`` option
-- Run ``C:\%YourDirectory%\SysMainView.exe`` 
+- Build the project with ``x64`` & ``Release`` option
+- Run ``C:\%YourDirectory%\x64\Release\SysMainView.exe`` 
 - Select on the menu what you want to do and follow the guide.
 
-/!\ Make sure you have your .db/.pf files ready to be used. Otherwise, you can use the samples files attached !
+/!\ Make sure you have your .db/.pf files ready to be used. Otherwise, you can use the sample files attached on ``Sample``!
 
 
 ## 2. Uses and opportunities
@@ -56,7 +56,7 @@ Scenarios are the traces of each program's activity. Some of their properties su
  The 8 digits correspond to a hash value, which is calculated for one application given one execution context. Therefore, one application might have more than one scenario associated. Please find SysMain's hash pseudo code under Windws 10 below. But be careful, this algorithm depends on your Windows version and might change on the future!
 ```c
 StringHashed = 314159;
-for (i=0; i< length(StringHashed); i++)
+for (i = 0; i< length(StringHashed); i++)
 {
     Char = StringToHash[i];
     UpChar = RtlUpcaseUnicodeChar(Char);
