@@ -137,5 +137,5 @@ The params have two uses :
 
  Published under the licence :  [MIT](https://opensource.org/licenses/mit-license.php)
 
-**Initial commit :** version 0.1 (07/2020)
+**Initial commit :** version 0.1 (08/2020)
 
