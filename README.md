@@ -13,7 +13,7 @@ Contributors : Mathilde Venault ; Baptiste David
 
 ## 1. Run
 
-Prerequisites : Visual Studio 2019 
+Prerequisites: having Visual Studio 2019 
 
 - Dowload the sources files:
 ``` 
@@ -24,7 +24,7 @@ Prerequisites : Visual Studio 2019
 - Run ``C:\%YourDirectory%\x64\Release\SysMainView.exe`` 
 - Select on the menu what you want to do and follow the guide.
 
-/!\ Make sure you have your .db/.pf files ready to be used. Otherwise, you can use the sample files attached on ``Sample``!
+/!\ Make sure you have your .db/.pf files ready to be used. Otherwise, you can use the sample files attached on the directory ``Sample``.
 
 
 ## 2. Uses and opportunities
