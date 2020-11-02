@@ -5,7 +5,7 @@ typedef void(__stdcall* __RtlZeroMemory)(
 	void* Destination,
 	size_t Length
 	);
-typedef void(__stdcall* __RtlCopyMemory)(
+typedef void(__stdcall* __RtlMoveMemory)(
 	void* Destination,
 	const void* Source,
 	size_t      Length
@@ -55,7 +55,7 @@ static __RtlDecompressBufferEx _RtlDecompressBufferEx = 0;
 static __RtlCompressBuffer _RtlCompressBuffer = 0;
 static __RtlGetCompressionWorkSpaceSize _RtlGetCompressionWorkSpaceSize = 0;
 static __RtlNtStatusToDosError _RtlNtStatusToDosError = 0;
-static __RtlCopyMemory _RtlCopyMemory = 0;
+static __RtlMoveMemory _RtlMoveMemory = 0;
 static __RtlZeroMemory _RtlZeroMemory = 0;
 
 
@@ -273,12 +273,12 @@ LPTSTR CopyBuffer(_In_ LPTSTR Buffer, _In_opt_ SIZE_T Size) {
 		}
 	}
 
-	if (0 == _RtlCopyMemory)
+	if (0 == _RtlMoveMemory)
 	{
-		_RtlCopyMemory = (__RtlCopyMemory)GetProcAddress(hNtDll, "RtlCopyMemory");
-		if (0 == _RtlCopyMemory)
+		_RtlMoveMemory = (__RtlMoveMemory)GetProcAddress(hNtDll, "RtlMoveMemory");
+		if (0 == _RtlMoveMemory)
 		{
-			TprintfC(Red, _T("[-] Error RtlCopyMemory() %d"), GetLastError());
+			TprintfC(Red, _T("[-] Error RtlMoveMemory() %d"), GetLastError());
 			return NULL;
 		}
 	}
@@ -292,7 +292,7 @@ LPTSTR CopyBuffer(_In_ LPTSTR Buffer, _In_opt_ SIZE_T Size) {
 		return NULL;
 	}
 
-	_RtlCopyMemory(Output, Buffer, Size * sizeof(TCHAR));
+	_RtlMoveMemory(Output, Buffer, Size * sizeof(TCHAR));
 
 	return Output;
 }

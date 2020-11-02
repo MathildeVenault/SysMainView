@@ -89,6 +89,7 @@ int _tmain(int argc, LPTSTR argv[]) {
 			if (name == NULL)
 			{
 				TprintfC(Red, _T("Error getting the file.\n"));
+				continue;
 			}
 		}
 

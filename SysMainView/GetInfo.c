@@ -28,7 +28,7 @@ void* ReadHeader(LPTSTR lpFileName)
 		case 0:
 			DataPf = (BUFFER_PF*)calloc(1, sizeof(BUFFER_PF));
 			//Intialize the PF structure
-			if (ReadFile(hFile, DataPf, sizeof(BUFFER_PF), NULL, NULL) == 0) {
+			if (ReadFile(hFile, DataPf, sizeof(BUFFER_PF), &DataSize, NULL) == 0) {
 				TprintfC(Red, _T("[-] Error: ReadFile(%s) %d for pf buffer.\n"), lpFileName, GetLastError());
 				__leave;
 			}
@@ -43,7 +43,7 @@ void* ReadHeader(LPTSTR lpFileName)
 		case 1:
 			DataDb = (BUFFER_DB*)calloc(1, sizeof(BUFFER_DB));
 			//initialize the DB structure
-			if (ReadFile(hFile, DataDb, sizeof(BUFFER_DB), NULL, NULL) == 0) {
+			if (ReadFile(hFile, DataDb, sizeof(BUFFER_DB), &DataSize, NULL) == 0) {
 				TprintfC(Red, _T("[-] Error: ReadFile(%s) %d for db buffer.\n"), lpFileName, GetLastError());
 				__leave;
 			}
